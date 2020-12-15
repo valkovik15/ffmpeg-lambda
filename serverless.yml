@@ -72,6 +72,7 @@ provider:
 functions:
   convert:
     handler: handler.convert
+    timeout: ${self:custom.timeout}
     events:
       - s3:
           bucket: ${self:custom.bucket}
@@ -89,6 +90,7 @@ custom:
   bucket: ${env:BUCKET, 'knovigator-dev'}
   region: ${env:AWS_REGION, 'eu-central-1'}
   api_endpoint: 'https://0fb8c3ba0417.ngrok.io/api/v1/update_attachment.json'
+  timeout: 60
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details

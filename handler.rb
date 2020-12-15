@@ -33,8 +33,6 @@ def convert(event:, context:)
         request = Net::HTTP::Post.new(uri.request_uri, header)
         request.set_form_data logs
         resp = http.request(request)
-        p 'RESPONSE'
-        p resp
     }
     File.delete(f.path) if File.exist?(f.path)
     File.delete("#{f.path}.mp4") if File.exist?("#{f.path}.mp4")
